@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KK Feedback A2</title>
+
+
+    <!--jquery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jquery mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jquery mobile styles-->
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <!--jquery validate-->
+    <script src="js/lib/jquery.validate.js"></script>
+
+
+
+    <!--our stuff-->
+    <script src="js/kkdatabase.js"></script>
+    <script src="js/kkDAL.js"></script>
+    <script src="js/kkfacade.js"></script>
+    <script src="js/kkglobal.js"></script>
+    <script src="js/kkutil.js"></script>
+
+    <!--our stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/kkmyStyle.css">
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+<body>
+
+
+<!--kkHomePage-->
+<div id="kkHomePage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>KK Feedback A3</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkHomePage" data-icon="home" data-theme="a"
+                       class="ui-btn-active ui-state-persist">Home</a>
+                </li>
+                <li><a href="#kkAddFeedbackPage" data-icon="plus" data-theme="a">Add</a></li>
+                <li><a href="#kkViewFeedbackPage" data-icon="grid" data-theme="a">Reviews</a></li>
+                <li><a href="#kkSettingsPage" data-icon="gear" data-theme="a">Settings</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <h2 class="center"> Khachig Kerbabian's Feedback A3 App</h2>
+
+        <p>Welcome to the Khachig Kerbabian's Feedback A3 app.
+            A Prototype designed for mobile programming class.
+            This is the first iteration of the app to keep track of different
+            places you visited along with your reviews.</p>
+        <div class="center">
+            <img src="img/kk-image.png" alt="kk-iamge" width="100%">
+        </div>
+        <p>Please feel free to contact me if you have any suggestions!</p>
+        <a href="#" data-role="button" data-icon="plus" data-theme="c">Call: 519.748.5220</a>
+        <a href="#" data-role="button" data-icon="plus" data-theme="c">kkerbabian-cc@conestogac.on.ca</a>
+        <p>Website:</p>
+        <a href="#" data-role="button" data-icon="plus" data-theme="c">Conestoga College</a>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2022 Khachig Kerbabian</h1>
+    </footer>
+</div>
+
+
+<!--kkAddFeedbackPage-->
+<div id="kkAddFeedbackPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Add a Feedback</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkHomePage" data-icon="home" data-theme="a">Home</a>
+                </li>
+                <li><a href="#kkAddFeedbackPage" data-icon="plus" data-theme="a" class="ui-btn-active ui-state-persist">Add</a>
+                </li>
+                <li><a href="#kkViewFeedbackPage" data-icon="grid" data-theme="a">Reviews</a></li>
+                <li><a href="#kkSettingsPage" data-icon="gear" data-theme="a">Settings</a></li>
+
+            </ul>
+
+        </div>
+    </header>
+
+    <section data-role="content">
+        <div id="mainDiv">
+
+            <form id="frmAddFeedbackPage" name="frmAddFeedbackPage">
+                <label for="txtBNameAdd">Business Name:</label>
+                <input type="text" id="txtBNameAdd" name="txtBNameAdd" >
+
+                <label for="txtTypeAdd">Type:</label>
+
+                <select id="txtTypeAdd" name="txtTypeAdd">
+
+                </select>
+
+                <label for="txtEmailAdd">Reviewer Email:</label>
+                <input type="text" id="txtEmailAdd" name="txtEmailAdd" >
+
+
+                <label for="txtCommentAdd">Reviewer Comments:</label>
+                <textarea id="txtCommentAdd" name="txtCommentAdd" data-clear-btn="true"></textarea>
+
+
+                <label for="txtReviewDateAdd">Review Date:</label>
+                <input type="date" id="txtReviewDateAdd" name="txtReviewDateAdd" >
+
+                <label for="ratingCheckBoxAdd">Do you want to add your ratings?</label>
+                <input type="checkbox" id="ratingCheckBoxAdd" name="ratingCheckBoxAdd" >
+
+
+
+                <div id="RatingsDiv">
+
+                    <label for="foodQlyAdd">Food Quality (0-5):</label>
+                    <input type="number" id="foodQlyAdd" name="foodQlyAdd" >
+
+                    <label for="serviceAdd">Service (0-5):</label>
+                    <input type="number" id="serviceAdd" name="serviceAdd">
+
+                    <label for="valueAdd">Value (0-5):</label>
+                    <input type="number" id="valueAdd" name="valueAdd" >
+
+                    <label for="overalratingCalculated">Overall Rating (calculated):</label>
+                    <input type="text" id="overalratingCalculated" name="overalratingCalculated">
+
+                </div>
+
+                <button type="button" id="btnAdd" name="btnAdd" data-inline="true" class="ui-btn-active">Save
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2022 Khachig Kerbabian</h1>
+    </footer>
+</div>
+
+
+<!--kkViewFeedbackPage-->
+<div id="kkViewFeedbackPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>List of Reviews</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkHomePage" data-icon="home" data-theme="a">Home</a>
+                </li>
+                <li><a href="#kkAddFeedbackPage" data-icon="plus" data-theme="a">Add</a></li>
+                <li><a href="#kkViewFeedbackPage" data-icon="grid" data-theme="a"
+                       class="ui-btn-active ui-state-persist">Reviews</a></li>
+                <li><a href="#kkSettingsPage" data-icon="gear" data-theme="a">Settings</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+
+            <ul id="lvAll"  data-role="listview" class="ui-listview-inset" data-split-icon="gear">
+
+
+            </ul>
+
+
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2022 Khachig Kerbabian</h1>
+    </footer>
+</div>
+
+
+<!--kkModifyFeedbackPage-->
+<div id="kkModifyFeedbackPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Modify Feedback</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkHomePage" data-icon="home" data-theme="a">Home</a>
+                </li>
+                <li><a href="#kkAddFeedbackPage" data-icon="plus" data-theme="a">Add</a></li>
+                <li><a href="#kkViewFeedbackPage" data-icon="grid" data-theme="a"
+                       class="ui-btn-active ui-state-persist">Reviews</a></li>
+                <li><a href="#kkSettingsPage" data-icon="gear" data-theme="a">Settings</a></li>
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+        <!--<div id="mainDiv">-->
+
+        <form id="frmModifyFeedbackPage" name="frmModifyFeedbackPage">
+
+            <label for="txtBNameModify">Business Name:</label>
+            <input type="text" id="txtBNameModify" name="txtBNameModify" data-clear-btn="true">
+
+
+            <label for="txtTypeModify">Type:</label>
+            <select id="txtTypeModify" name="txtTypeModify">
+
+            </select>
+
+
+
+            <label for="txtEmailModify">Reviewer Email:</label>
+            <input type="text" id="txtEmailModify" name="txtEmailModify" data-clear-btn="true">
+
+            <label for="txtCommentsModify">Reviewer Comments:</label>
+            <textarea id="txtCommentsModify" name="txtCommentsModify" data-clear-btn="true"></textarea>
+
+            <label for="txtReviewDateModify">Review Date:</label>
+            <input type="date" id="txtReviewDateModify" name="txtReviewDateModify" >
+
+
+            <input type="checkbox" id="ratingCheckBoxModify" name="ratingCheckBoxModify" >
+            <label for="ratingCheckBoxModify">Do you want to add your ratings?</label>
+
+
+            <div id="RatingsDivmodify">
+
+                <label for="foodQlyModify">Food Quality (0-5):</label>
+                <input type="number" id="foodQlyModify" name="foodQlyModify" >
+
+                <label for="serviceModify">Service (0-5):</label>
+                <input type="number" id="serviceModify" name="serviceModify" >
+
+                <label for="valueModify">Value (0-5):</label>
+                <input type="number" id="valueModify" name="valueModify" >
+
+                <label for="overalratingCalculatedModify">Overall Rating (calculated):</label>
+                <input type="text" id="overalratingCalculatedModify" name="overalratingCalculatedModify">
+
+            </div>
+
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <button type="button" id="btnCancle" data-rel="back" onclick="window.history.back()" data-theme="a">Cancle
+                </button>
+                <button type="button" id="btnDelete" name="btnDelete" data-theme="b">Delete
+                </button>
+                <button type="button" id="btnUpdate" name="btnUpdate" class="ui-btn-active">
+                    Update
+                </button>
+            </fieldset>
+
+
+        </form>
+        <!--</div>-->
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2022 Khachig Kerbabian</h1>
+    </footer>
+</div>
+
+
+<!--kkSettingsPage -->
+<div id="kkSettingsPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Settings</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkHomePage" data-icon="home" data-theme="a">Home</a>
+                </li>
+                <li><a href="#kkAddFeedbackPage" data-icon="plus" data-theme="a">Add</a></li>
+                <li><a href="#kkViewFeedbackPage" data-icon="grid" data-theme="a">Reviews</a></li>
+                <li><a href="#kkViewFeedbackPage" data-icon="gear" data-theme="a"
+                       class="ui-btn-active ui-state-persist">Settings</a></li>
+
+            </ul>
+
+        </div>
+    </header>
+    <section data-role="content">
+
+        <label for="txtdefaultReviwerEmail">Default reviewer Email:</label>
+        <input type="text" id="txtdefaultReviwerEmail" name="txtdefaultReviwerEmail" value="kkerbabian7278@conestogac.on.ca" >
+
+
+        <button type="button" id="btnSaveDefaults" name="btnSaveDefaults" class="ui-btn-active">Save Defaults
+        </button>
+
+        <button type="button" id="btnClearDatabase" name="btnClearDatabase" data-theme="b">
+            Clear Database
+        </button>
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>&copy; 2022 Khachig Kerbabian</h1>
+    </footer>
+</div>
+
+
+</body>
+
+
+
+
+
+</html>

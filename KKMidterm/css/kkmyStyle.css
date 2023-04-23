@@ -1,0 +1,16 @@
+.divStyle {
+    padding: 20px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+
+
+label.error{
+    color: #F00;
+    font-weight: bold;
+}
+input.error,
+select.error,
+textarea.error {
+    border: 1px red solid;
+}

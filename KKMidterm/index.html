@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KK Feedback A2</title>
+
+
+    <!--jquery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jquery mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jquery mobile styles-->
+    <link rel="stylesheet" href="css/lib/jquery.mobile-1.4.5.css">
+    <!--jquery validate-->
+    <script src="js/lib/jquery.validate.js"></script>
+
+
+    <!--our stuff-->
+    <script src="js/kkdatabase.js"></script>
+    <script src="js/kkDAL.js"></script>
+    <script src="js/kkfacade.js"></script>
+    <script src="js/kkglobal.js"></script>
+    <script src="js/kkutil.js"></script>
+
+    <!--our stylesheet-->
+    <link rel="stylesheet" type="text/css" href="css/kkmyStyle.css">
+
+
+</head>
+
+<body>
+
+
+<!--kkAboutPage-->
+<div id="kkAboutPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>About</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkAboutPage" data-icon="star" data-theme="a"
+                       class="ui-btn-active ui-state-persist">About</a>
+                </li>
+                <li><a href="#kkRegisterPage" data-icon="grid" data-theme="a">Register</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+    <section data-role="content">
+        <p class="center"> Name: Khachig Kerbabian</p>
+        <p>Section: 2</p>
+    </section>
+
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>Midterm exam</h1>
+    </footer>
+</div>
+
+
+<!--kkRegisterPagePage-->
+<div id="kkRegisterPage" data-role="page">
+    <header data-role="header" data-position="fixed" data-theme="a">
+        <h1>Register</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#kkAboutPage" data-icon="star" data-theme="a">About</a>
+                </li>
+                <li><a href="#kkRegisterPage" data-icon="grid" data-theme="a"
+                       class="ui-btn-active ui-state-persist">Register</a></li>
+            </ul>
+
+        </div>
+    </header>
+
+    <section data-role="content">
+        <div id="mainDiv">
+
+            <form id="frmRegister" name="frmRegister">
+
+                <label for="txtUsername">Username</label>
+                <input type="text" id="txtUsername" name="txtUsername" data-clear-btn="true">
+
+
+                <label for="txtFullname">Full Name</label>
+                <input type="text" id="txtFullname" name="txtFullname" data-clear-btn="true">
+
+                <label for="txtEmail">Email</label>
+                <input type="text" id="txtEmail" name="txtEmail" data-clear-btn="true">
+
+
+                <label for="txtPassword">Password</label>
+                <input type="text" id="txtPassword" name="txtPassword" data-clear-btn="true">
+
+
+                <label for="txtVerifyPassword">Verify Password</label>
+                <input type="text" id="txtVerifyPassword" name="txtVerifyPassword" data-clear-btn="true">
+
+
+                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                    <legend>Favorite Platform</legend>
+
+                    <input type="radio" name="radio_choice" id="radio_choice_ps5" value="ps5" checked="checked">
+                    <label for="radio_choice_ps5">PS5</label>
+
+                    <input type="radio" name="radio_choice" id="radio_choice_ps4" value="ps4">
+                    <label for="radio_choice_ps4">PS4</label>
+
+                    <input type="radio" name="radio_choice" id="radio_choice_xb" value="xbox">
+                    <label for="radio_choice_xb">XBox</label>
+
+                    <input type="radio" name="radio_choice" id="radio_choice_pc" value="pc">
+                    <label for="radio_choice_pc">PC</label>
+                </fieldset>
+
+
+                <button type="button" id="btnRegister" name="btnRegister" data-icon="check" class="ui-btn-active ">
+                    Register
+                </button>
+
+                <div id="ShowResult">
+                    <p id="Resaults"></p>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+    <footer data-role="footer" data-position="fixed" data-theme="a">
+        <h1>Midterm exam</h1>
+    </footer>
+</div>
+
+
+</body>
+
+
+</html>
